@@ -13,6 +13,7 @@ venv/
 ENV/
 env/
 venv.bak/
+.venv
 
 # File konfigurasi dan kredensial
 config.py
@@ -30,7 +31,6 @@ cache/
 uploads/
 
 # Static files yang dihasilkan
-static/
 *.bak
 .DS_Store
 
