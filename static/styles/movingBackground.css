@@ -1,0 +1,20 @@
+.moving-background {
+  width: 200vw;
+  height: 200vh;
+  position: fixed;
+  top: 0;
+  left: -47vw;
+  background-image: radial-gradient(#20213f 3%, transparent 0);
+  background-size: 100px 100px;
+  animation: moveBackground 60s linear infinite;
+  z-index: -10;
+}
+
+@keyframes moveBackground {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, -100vh);
+  }
+}
