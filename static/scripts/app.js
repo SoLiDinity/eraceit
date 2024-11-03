@@ -1,3 +1,5 @@
+// import { showAlertPopUp } from './utils/showAlertPopup.js'
+
 document.addEventListener('DOMContentLoaded', () => {
   const socket = io();
 
@@ -10,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const burger = document.getElementById('burger');
   const drawer = document.getElementById('drawer');
   const xdrawer = document.getElementById('x-drawer');
+  const popup = document.getElementById('popup');
 
   const dropEvents = ['dragenter', 'dragover', 'dragleave', 'drop'];
   const imageTypes = ['image/png', 'image/jpg', 'image/jpeg'];
@@ -29,11 +32,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const showSpinner = () => {
     const spinner = document.getElementById('loadingSpinner');
     spinner.classList.remove('hidden');
-  }
+  };
 
   const hideIcon = () => {
-    uploadIcon.classList.add('hidden')
-  }
+    uploadIcon.classList.add('hidden');
+  };
+
+  const triggerPopup = (popup) => {
+    popup.style.opacity = '1';
+
+    setTimeout(() => {
+      popup.style.opacity = '0';
+    }, 5000);
+  };
 
   socket.on('processing_status', (data) => {
     hideIcon();
@@ -42,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (data.status === 'Processing completed') {
       setTimeout(() => {
         document.getElementById('loadingSpinner').classList.add('hidden');
-        uploadIcon.classList.remove('hidden')
+        uploadIcon.classList.remove('hidden');
       }, 500);
     }
   });
@@ -62,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (files.length) {
       if (!imageTypes.includes(files[0].type)) {
-        alert('tidak valid');
+        triggerPopup(popup);
         return;
       }
 
@@ -97,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
   fileInput.addEventListener('change', () => {
     if (fileInput.files.length) {
       if (!imageTypes.includes(fileInput.files[0].type)) {
-        alert('tidak valid');
+        triggerPopup(popup);
         return;
       }
 
