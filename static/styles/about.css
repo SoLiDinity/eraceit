@@ -177,6 +177,41 @@ footer {
   border: 1px solid #303f50;
 }
 
+#backToTop {
+  position: fixed;
+  z-index: 999;
+  background-color: blueviolet;
+  bottom: 30px;
+  right: 30px;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  padding: 1rem;
+  border-radius: 50%;
+}
+
+#backToTop p {
+  font-size: clamp(32px, 3vw, 180px);
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+  margin-bottom: -10px;
+  overflow: hidden;
+  rotate: -90deg;
+  transition: all .5s ease;
+}
+
+#backToTop:hover {
+  background-color: white;
+
+}
+
+#backToTop:hover p{
+  color: blueviolet;
+  transform: rotate(-360deg);
+}
+
 @media (prefers-reduced-motion) {
     .hidden {
         transition: none;
@@ -201,6 +236,11 @@ footer {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+  }
+
+  #backToTop {
+    bottom: 15px;
+    right: 15px;
   }
 }
 
