@@ -39,5 +39,13 @@ def upload_file():
 def about():
     return render_template('about.html')
 
+@app.route('/privacy-policy')
+def privacy_policy():
+    return render_template('privacy-policy.html')
+
+@app.route('/terms-and-conditions')
+def terms_conditions():
+    return render_template('terms-conditions.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=9000, debug=True)
