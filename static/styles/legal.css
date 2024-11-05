@@ -1,0 +1,35 @@
+@import url(./movingBackground.css);
+@import url(./footer.css);
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #10141d;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    padding-top: 2rem;
+}
+
+.page a {
+    color: rgb(194, 129, 255);
+    text-decoration: none;
+    font-style: italic;
+}
+
+.page {
+    max-width: 800px;
+    background-color: #16202c;
+    border: 1px solid #303f50;
+    padding: 1rem 2rem;
+}
