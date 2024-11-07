@@ -10,6 +10,7 @@ footer {
   align-items: center;
   margin-top: 2rem;
   color: white;
+  align-self: end;
 }
 
 footer div,
@@ -58,7 +59,6 @@ footer #navigation ul li {
 }
 
 footer #links {
-  /* width: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;

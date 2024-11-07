@@ -33,3 +33,9 @@ body {
     border: 1px solid #303f50;
     padding: 1rem 2rem;
 }
+
+@media (max-width: 860px) {
+    .page {
+        margin: 0 2rem ;
+    }
+}
