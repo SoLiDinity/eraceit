@@ -42,6 +42,6 @@
 @media (orientation: portrait) or (max-width: 650px) {
     #popup{
         max-width: 150px;
-        top: 60px;
+        top: 20px;
     }
 }
