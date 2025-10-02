@@ -48,4 +48,4 @@ def terms_conditions():
     return render_template('terms-conditions.html')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
