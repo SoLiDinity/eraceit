@@ -1,16 +1,18 @@
 from flask import Flask, render_template, request, send_file
 from flask_socketio import SocketIO, emit
+from flask_cors import CORS
 from PIL import Image
 from io import BytesIO
-from os import path
+import os
 import cv2
 import numpy as np
 import onnxruntime as ort
 
 app = Flask(__name__)
+CORS(app)
 socketio = SocketIO(app)
 
-model_path = path.join(path.dirname(__file__), 'models', 'silueta.onnx')
+model_path = os.path.join(os.path.dirname(__file__), 'models', 'silueta.onnx')
 session = ort.InferenceSession(model_path, providers=['CPUExecutionProvider'])
 
 def remove_bg(img: Image.Image):
@@ -58,7 +60,7 @@ def upload_file():
             socketio.emit('processing_status', {'status': 'Processing completed'})
             
             filename = file.filename if file.filename is not None else "uploaded"
-            return send_file(img_io, mimetype='image/png', as_attachment=True, download_name=f'{path.splitext(filename)[0]}_transparent_EraceIt.png')
+            return send_file(img_io, mimetype='image/png', as_attachment=True, download_name=f'{os.path.splitext(filename)[0]}_transparent_EraceIt.png')
     
     return render_template('index.html')
 
@@ -75,4 +77,5 @@ def terms_conditions():
     return render_template('terms-conditions.html')
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=10000, debug=True)
+    port = int(os.environ.get('PORT', 10000))
+    socketio.run(app, host='0.0.0.0', port=port)
