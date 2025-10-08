@@ -109,6 +109,21 @@ section div {
   line-height: 1.5rem;
 }
 
+.abt-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.abt-btn svg {
+  margin-left: 4px;
+  fill: white;
+}
+
+.try-now svg {
+  fill: rgb(178, 97, 255);
+}
+
 .hidden {
     opacity: 0;
     filter: blur(10px);
@@ -160,18 +175,13 @@ section div {
   overflow: hidden;
   padding: 1rem;
   border-radius: 50%;
-}
-
-#backToTop p {
-  font-size: clamp(32px, 3vw, 180px);
-  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
-  aspect-ratio: 1/1;
-  margin-bottom: -10px;
-  overflow: hidden;
-  rotate: -90deg;
+}
+
+#backToTop svg {
+  fill: white;
   transition: all .5s ease;
 }
 
@@ -180,8 +190,8 @@ section div {
 
 }
 
-#backToTop:hover p{
-  color: blueviolet;
+#backToTop:hover svg{
+  fill: blueviolet;
   transform: rotate(-360deg);
 }
 
